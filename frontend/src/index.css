@@ -1,0 +1,296 @@
+/* index.css */
+
+:root {
+  /* Light theme variables */
+  --color-background: #f4f4f5;
+  --color-on-background: #18181b;
+  --color-surface: #ffffff;
+  --color-on-surface: #18181b;
+  --color-surface-variant: #e4e4e7;
+  --color-on-surface-variant: #71717a;
+  --color-outline: #000000;
+  --color-outline-variant: #d4d4d8;
+  --color-primary: #18181b;
+  --color-on-primary: #ffffff;
+
+  --shadow-color: rgba(0, 0, 0, 1);
+  --node-selected-border: #3b82f6;
+  --grid-color: #d4d4d8;
+}
+
+html.dark {
+  /* Dark theme variables */
+  --color-background: #121212;
+  --color-on-background: #E0E0E0;
+  --color-surface: #121212;
+  --color-on-surface: #E0E0E0;
+  --color-surface-variant: #222222;
+  --color-on-surface-variant: #888888;
+  --color-outline: #000000;
+  --color-outline-variant: #333333;
+  --color-primary: #E0E0E0;
+  --color-on-primary: #121212;
+
+  --shadow-color: rgba(224, 224, 224, 1);
+  --node-selected-border: #ffffff;
+  --grid-color: #333333;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.02em;
+  background-color: var(--color-background);
+  color: var(--color-on-background);
+}
+
+/* React Flow Background Grid styling using dot-pattern */
+.react-flow__background {
+  background-color: var(--color-background) !important;
+  background-image: radial-gradient(circle, var(--grid-color) 1.5px, transparent 1.5px) !important;
+  background-size: 32px 32px !important;
+}
+
+/* React Flow connection lines and edges */
+.react-flow__connection-path,
+.react-flow__edge-path {
+  fill: none !important;
+  stroke: var(--color-on-background) !important;
+  stroke-width: 4px !important;
+  stroke-linejoin: miter !important;
+}
+
+.react-flow__edge.selected .react-flow__edge-path {
+  stroke: var(--node-selected-border) !important;
+  stroke-width: 5px !important;
+}
+
+/* Base Node Card Styling - Neo-Brutalist */
+.pipeline-node {
+  background: var(--color-surface) !important;
+  border: 4px solid var(--color-outline) !important;
+  border-radius: 0px !important;
+  box-shadow: 8px 8px 0px 0px var(--shadow-color) !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  box-sizing: border-box !important;
+  font-family: inherit !important;
+  transition: none !important;
+  overflow: visible !important;
+}
+
+.pipeline-node:hover {
+  border-color: var(--color-on-surface) !important;
+}
+
+.pipeline-node.selected {
+  border-color: var(--node-selected-border) !important;
+  box-shadow: 8px 8px 0px 0px var(--node-selected-border) !important;
+}
+
+/* Header inside node styling */
+.pipeline-node-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 4px solid var(--color-outline);
+  background: var(--color-surface-variant);
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.pipeline-node-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pipeline-node-icon {
+  font-size: 16px;
+}
+
+.pipeline-node-title {
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--color-on-surface);
+}
+
+.pipeline-node-id {
+  font-size: 9px;
+  color: var(--color-on-surface-variant);
+  font-weight: 900;
+  border: 4px solid var(--color-outline);
+  background: var(--color-surface);
+  padding: 2px 6px;
+  text-transform: uppercase;
+}
+
+/* Body and fields styling */
+.pipeline-node-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.pipeline-node-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+}
+
+.pipeline-node-field.vertical {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.pipeline-node-label {
+  font-size: 10px;
+  font-weight: 900;
+  color: var(--color-on-surface-variant);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pipeline-node-desc {
+  font-size: 11px;
+  color: var(--color-on-surface-variant);
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+/* Brutalist Inputs, Selects, and Textareas */
+.pipeline-node-input,
+.pipeline-node-select,
+.pipeline-node-textarea {
+  background: var(--color-surface) !important;
+  border: 4px solid var(--color-outline) !important;
+  color: var(--color-on-surface) !important;
+  border-radius: 0px !important;
+  padding: 6px 10px !important;
+  font-size: 12px !important;
+  font-family: inherit !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  transition: none !important;
+}
+
+.pipeline-node-input:focus,
+.pipeline-node-select:focus,
+.pipeline-node-textarea:focus {
+  outline: none !important;
+  border-color: var(--color-on-surface) !important;
+}
+
+/* Ports/Handles Styling - Square Brutalist Ports */
+.pipeline-handle {
+  width: 16px !important;
+  height: 16px !important;
+  border-radius: 0px !important;
+  background: var(--color-surface) !important;
+  border: 4px solid var(--color-outline) !important;
+  box-shadow: none !important;
+  transition: none !important;
+  z-index: 100 !important;
+}
+
+.pipeline-handle:hover {
+  border-color: var(--color-on-surface) !important;
+  transform: none !important;
+}
+
+.pipeline-handle.type-target {
+  left: -10px !important;
+}
+
+.pipeline-handle.type-source {
+  right: -10px !important;
+}
+
+/* Dynamic Text Node spacing */
+.pipeline-node-textarea {
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* Floating Controls (React Flow Override) */
+.react-flow__controls {
+  background: var(--color-surface) !important;
+  border: 4px solid var(--color-outline) !important;
+  padding: 8px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  box-shadow: 4px 4px 0px 0px var(--shadow-color) !important;
+  border-radius: 0px !important;
+  left: 24px !important;
+  bottom: 24px !important;
+}
+
+.react-flow__controls-button {
+  background: transparent !important;
+  border: 4px solid transparent !important;
+  border-radius: 0px !important;
+  color: var(--color-on-surface) !important;
+  width: 40px !important;
+  height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: none !important;
+}
+
+.react-flow__controls-button:hover {
+  border-color: var(--color-outline) !important;
+  background: var(--color-surface-variant) !important;
+}
+
+.react-flow__controls-button svg {
+  fill: var(--color-on-surface) !important;
+}
+
+/* Custom scrollbar for horizontal menu */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--color-surface);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+}
+
+.btn-flat {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  border: 4px solid var(--color-outline);
+  border-radius: 0;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.btn-flat:hover {
+  background: var(--color-surface-variant);
+  color: var(--color-on-surface);
+}
+
+/* Custom Brutalist MiniMap */
+.pipeline-minimap {
+  background: var(--color-surface) !important;
+  border: 4px solid var(--color-outline) !important;
+  box-shadow: 4px 4px 0px 0px var(--shadow-color) !important;
+  border-radius: 0px !important;
+  bottom: 100px !important;
+}
